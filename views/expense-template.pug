@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expense Report</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      tr:hover {
+        background-color: #f2f2f2;
+      }
+
+      /* Add more styles here to further customize the look and feel */
+      /* For example, you can change fonts, colors, and add animations */
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Expense Report</h1>
+    </header>
+
+    <div class="container">
+      <h2>Table of Expenses</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <% Object.keys(expenses.type).forEach((type) => { %>
+          <th><%= type %></th>
+          <% }); %>
+          <th>Total</th>
+        </tr>
+        <% expense.dates.forEach((date) => { %>
+        <tr>
+          <td><%= date %></td>
+          <% Object.keys(expenses.expenseTypes).forEach((type) => { %>
+          <td><%= expenses.expenseTypes[type][date] || 0 %></td>
+          <% }); %>
+          <td><%= expenses.dailyTotal[date] %></td>
+        </tr>
+        <% }); %>
+      </table>
+
+      <h2>Bar Graph of Expenses</h2>
+      <!-- Implement your bar graph using HTML/CSS/JavaScript here -->
+      <!-- You can use libraries like Chart.js or D3.js for creating the graph -->
+    </div>
+  </body>
+</html>

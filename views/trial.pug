@@ -1,0 +1,119 @@
+doctype html
+html
+  head
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #d1d5db;
+        color: #333;
+        line-height: 1.6;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+        width: 100%;
+        min-hight: 50px;
+        background-color: #f0f0f0;
+      }
+      
+      h3 {
+        margin: 20px 0 10px;
+        color: #444;
+      }
+      
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      
+      th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #f0f0f0;
+      }
+      
+      tbody tr:hover {
+        background-color: #f9f9f9;
+      }
+      
+      .total-expenses {
+        text-align: right;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #333;
+      }
+      
+      .inner-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      
+      .inner-inner-container {
+        width: 48%;
+      }
+
+  body
+    .container 
+      h1 Expense Report of #{month}
+      h3 Total Expenses: #{total}
+      .inner-container 
+        .inner-inner-container 
+          h3 Tabular presentation of expenses by type
+          table.table.table-striped
+            thead
+              tr
+                th Type
+                th Total
+            tbody
+              each type in types
+                tr
+                  td #{type.type}
+                  td #{type.totalAmount}
+
+        .inner-inner-container 
+          h3 Tabular presentation of expenses by date
+          table.table.table-striped
+            thead
+              tr
+                th Day
+                th Total
+            tbody
+              each date in dates
+                tr
+                  td #{date.date}
+                  td #{date.totalAmount}
+
+        .inner-container 
+          h3 Tabular presentation of expenses throughout the month
+          table.table.table-striped
+            thead
+              tr
+                th Day
+                th Type
+                th Description 
+                th Amount 
+            tbody
+              each expense in expenses
+                tr
+                  td #{expense.date}
+                  td #{expense.type}
+                  td #{expense.description}
+                  td #{expense.amount}
