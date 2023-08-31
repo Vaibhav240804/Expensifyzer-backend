@@ -88,9 +88,10 @@ const GetReport = asyncHandler(async (req, res) => {
   console.log(req.body);
   const month = req.body.month;
   try {
-    const year = 2023; // Replace with the desired year
+    var year = new Date().getFullYear(); // Replace with the desired year
     // January (0-based index, January is 0)
     // Get the first day of the month
+    if(month<new Date().getMonth()) year -= 1;
     console.log(month);
     const startDate = new Date(year, month, 1);
     const endDate = new Date(year, month + 1, 1);
